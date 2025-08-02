@@ -1,0 +1,25 @@
+dialog_boxes.html
+<!DOCTYPE html>
+    <head></head>
+<body>
+    <button type="button" onclick="callMe(display)">Click Me!</button>
+    <script>
+        // function
+        function display(name) {
+            alert('Hello ' + name);
+        }
+        
+        // callback function
+        function callMe(callback) {
+            var name = prompt('Please enter your name.');
+            callback(name);
+        }
+        
+        // passing function as an argument
+        
+        </script>
+</body>
+
+
+
+</html>
