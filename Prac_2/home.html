@@ -1,42 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portal | Home</title>
   <style>
     body {
-      font-family: Arial, sans-serif;;
-      background-color: #e6f7fc;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f3f9ff;
+      color: #333;
     }
 
     .navbar {
+      display: flex;
+      justify-content: center;
       background-color: #2a3d66;
-      overflow: hidden;
+      flex-wrap: wrap;
     }
 
     .navbar a {
-      float: left;
-      display: block;
-      color: #f2f2f2;
-      text-align: center;
-      padding: 14px 20px;
+      color: white;
       text-decoration: none;
+      padding: 15px 25px;
+      display: block;
     }
 
     .navbar a:hover {
-      background-color: #575757;
+      background-color: #4e628f;
     }
 
-    .content {
-      padding: 20px;
+    .home-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      margin: 150px auto;
-      font-weight: bold;
+      min-height: 80vh;
+      padding: 20px;
     }
 
-    h1 {
-      color: #333;
+    .home-content h1 {
+      font-size: 2.5rem;
+      color: #2a3d66;
+    }
+
+    .home-content p {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+
+    @media (max-width: 768px) {
+      .home-content h1 {
+        font-size: 2rem;
+      }
+      .home-content p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar {
+        flex-direction: column;
+        align-items: center;
+      }
+      .navbar a {
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid #445;
+      }
     }
   </style>
 </head>
@@ -44,13 +76,13 @@
 
   <div class="navbar">
     <a href="home.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="feedback.html">Feedback</a>
+    <a href="about.html">About</a>
     <a href="logout.html">Logout</a>
   </div>
 
-  <div class="content">
-  <h1>Welcome to the Home Page</h1>
+  <div class="home-content">
+    <h1>Welcome to the Student Portal</h1>
+    <p>Access your dashboard, manage information, and stay updated on student activities.</p>
   </div>
 
 </body>

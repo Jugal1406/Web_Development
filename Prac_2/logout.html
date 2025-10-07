@@ -1,42 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>logout</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portal | Logout</title>
   <style>
     body {
-      font-family: Arial, sans-serif;;
-      background-color: #e6f7fc;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f3f9ff;
+      color: #333;
     }
 
     .navbar {
+      display: flex;
+      justify-content: center;
       background-color: #2a3d66;
-      overflow: hidden;
+      flex-wrap: wrap;
     }
 
     .navbar a {
-      float: left;
-      display: block;
-      color: #f2f2f2;
-      text-align: center;
-      padding: 14px 20px;
+      color: white;
       text-decoration: none;
+      padding: 15px 25px;
+      display: block;
     }
 
     .navbar a:hover {
-      background-color: #575757;
+      background-color: #4e628f;
     }
 
-    .content {
-      padding: 20px;
+    .logout-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      margin: 150px auto;
-      font-weight: bold;
+      min-height: 80vh;
+      padding: 20px;
     }
 
-    h1 {
-      color: #333;
+    .logout-container h2 {
+      color: #2a3d66;
+      font-size: 2rem;
+    }
+
+    .btn {
+      margin-top: 20px;
+      background-color: #2a3d66;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      background-color: #4e628f;
+    }
+
+    @media (max-width: 480px) {
+      .navbar {
+        flex-direction: column;
+      }
+      .navbar a {
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid #445;
+      }
     }
   </style>
 </head>
@@ -44,13 +76,13 @@
 
   <div class="navbar">
     <a href="home.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="feedback.html">Feedback</a>
+    <a href="about.html">About</a>
     <a href="logout.html">Logout</a>
   </div>
 
-  <div class="content">
-  <h1>Want to logout ?</h1>
+  <div class="logout-container">
+    <h2>You have been logged out successfully</h2>
+    <a href="index.html" class="btn">Return to Registration</a>
   </div>
 
 </body>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div.static {
+  position: static;
+  left: 50px;
+  background-color: black;
+  border: 3px solid yellow;
+  color: white;
+}
+
+div.relative {
+  position: relative;
+  left: 50px;
+  background-color: black;
+  border: 3px solid yellow;
+  color: white;
+  width: 1000px;
+}
+
+div.relative1 {
+  position: relative;
+  width: 500px;
+  height: 200px;
+  background-color: black;
+  border: 3px solid yellow;
+  color: white;
+}
+
+div.absolute {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  width: 280px;
+  height: 100px;
+  background-color: black;
+  border: 3px solid yellow;
+  color: white;
+}
+
+div.fixed {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  background-color: black;
+  border: 3px solid yellow;
+  color: white;
+}
+
+div.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 5px;
+  text-align: center;
+  background-color: black;
+  border: 3px solid yellow;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<h2>position: static;</h2>
+<div class="static">This div element has position: static;</div>
+
+<h2>position: relative;</h2>
+<div class="relative">This div element has position: relative;</div>
+
+<h2>position: absolute;</h2>
+<div class="relative1">This div element has position: relative;
+  <div class="absolute">This div element has position: absolute;</div>
+</div>
+
+<h2>position: fixed;</h2>
+<div class="fixed">This div element has position: fixed;</div>
+
+<h2>position: sticky;</h2>
+<div class="sticky" style="padding-bottom:20px">I am sticky!!!!</div>
+<div style="padding-bottom:2000px"></div>
+
+</body>
+</html>
