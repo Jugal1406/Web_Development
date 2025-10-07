@@ -1,102 +1,106 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <style>
-    body{
-      background-color:#1a1a1a;
-      font-family:Arial,Helvetica,sans-serif;
-      margin:0;
-      height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-    }
-    .card{
-      background:#d5d4d4;
-      border-radius:8px;
-      padding:30px;
-      width:300px;
-    }
-    h2{
-      color:#1a50a0;
-      text-align:center;
-      margin-bottom:20px;
-    }
-    form{ display:flex; 
-        flex-direction:column; 
-        outline: none;
-        border: none;
-    }
-    input{
-      margin-bottom:15px;
-      padding:10px;
-      border-radius:5px;
-      border:1px solid #000;
-      outline:none;
-    }
-    button{
-      background:#1b81da;
-      color:#fff;
-      padding:10px;
-      border:none;
-      border-radius:8px;
-      cursor:pointer;
-    }
-    button:hover{ background:#0741ac; }
-    #message{
-      /* position: absolute; */
-      bottom: -30px;
-      color: #000000;
-      font-size: 15px;
-      display: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f2f2f2;
+        }
+        form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background: #45a049;
+        }
+        .strength {
+            font-weight: bold;
+        }
+        .weak { color: red; }
+        .medium { color: orange; }
+        .strong { color: green; }
+    </style>
 </head>
 <body>
-  <div class="card">
-    <h2>Login</h2>
+    <form id="registrationForm">
+        <h2>Register</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
 
-    
-    <form action="home.html" method="get">
-      <input type="email" id="email" placeholder="Email" required>
-      <input type="password" id="password" placeholder="Password" required>
-      <button type="submit">Submit</button>
-      <p id="message">Password is<span id="st"></span></p>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <div id="strengthMessage" class="strength"></div>
+
+        <input type="submit" value="Register">
     </form>
-  </div>
 
-  <script>
-    var pass=document.getElementById("password");
-    var msg=document.getElementById("message");
-    var str=document.getElementById("st");
-    pass.addEventListener('input',()=>{
-      if(pass.value.length>0){
-        msg.style.display="block";
-      }
-      else{
-        msg.style.display="none";
-      }
-      if(pass.value.length<4){
-        str.innerHTML=" weak";
-        pass.style.borderColor="#ff5925"
-        msg.style.color="#ff5925"
-      }
-      else if(pass.value.length>=4 && pass.value.length<8){
-        str.innerHTML=" medium";
-        pass.style.borderColor="#e7d377";
-        msg.style.color="#e7d377";
-      }
-      else if(pass.value.length>=8){
-        str.innerHTML=" strong";
-        pass.style.borderColor="#26d730";
-        msg.style.color="#26d730";
-      }
-    })
+    <script>
+        const form = document.getElementById('registrationForm');
+        const passwordInput = document.getElementById('password');
+        const strengthMessage = document.getElementById('strengthMessage');
 
-  </script>
+        // Function to check password strength
+        function checkPasswordStrength(password) {
+            let strength = 0;
+            if (password.length >=8){ strength++;
+            if (/[A-Z]/.test(password)) strength++;
+            if (/[0-9]/.test(password)) strength++;
+            if (/[\W]/.test(password)) strength++;
+            }
+
+            if (strength <= 1) {
+                strengthMessage.textContent = "Password is too weak";
+                strengthMessage.className = "strength weak";
+            } else if (strength === 2) {
+                strengthMessage.textContent = "Password is medium";
+                strengthMessage.className = "strength medium";
+            } else if (strength === 3) {
+                strengthMessage.textContent = "Password is strong";
+                strengthMessage.className = "strength strong";
+            }
+        }
+
+        passwordInput.addEventListener('input', () => {
+            checkPasswordStrength(passwordInput.value);
+        });
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            if(passwordInput.value.length < 6) {
+                alert("Password too short! Must be at least 6 characters.");
+                return;
+            }
+
+            // Redirect to success page
+            window.location.href = "home.html";
+        });
+    </script>
 </body>
 </html>
